@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hongbin George Du, Ph.D. candidate in Finance at the Jones Graduate School of Business, Rice University.">
+<title>Hongbin George Du</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>
+/* Layout: Google Sites "personal academic" pattern — sticky top nav, banner with name, single centered column, one page per tab */
+:root{
+  --rice-blue:#00205B;      /* Rice Blue */
+  --rice-gray:#7C7E7F;      /* Rice Gray */
+  --bg:#F7F8FA;
+  --surface:#FFFFFF;
+  --fg:#1B2433;
+  --muted:#5A6170;
+  --line:#DDE1E8;
+  --accent:#00205B;
+  --banner-fg:#FFFFFF;
+  --banner-bg:#00205B;
+  --chip:#E8ECF3;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B1220;--surface:#111A2C;--fg:#E6E9EF;--muted:#A3A9B4;--line:#26314A;
+  --accent:#9FB6E8;--banner-bg:#00163F;--chip:#1A2540;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B1220;--surface:#111A2C;--fg:#E6E9EF;--muted:#A3A9B4;--line:#26314A;
+  --accent:#9FB6E8;--banner-bg:#00163F;--chip:#1A2540;color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Top nav */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--banner-bg);color:var(--banner-fg);border-bottom:3px solid var(--rice-gray)}
+.topbar-inner{max-width:1040px;margin:0 auto;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:60px}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--banner-fg);text-decoration:none;letter-spacing:.01em}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+nav a{display:block;padding:8px 14px;color:#D5DBE6;text-decoration:none;font-size:.92rem;font-weight:500;border-bottom:2px solid transparent}
+nav a:hover{color:#fff}
+nav a[aria-current="page"]{color:#fff;border-bottom-color:#fff}
+
+/* Banner */
+.banner{background:var(--banner-bg);color:var(--banner-fg);padding-inline:16px;padding-block:56px 64px;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.05) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.05) 50%,rgba(255,255,255,.05) 75%,transparent 75%);background-size:28px 28px}
+.banner h1{max-width:1040px;margin:0 auto;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.1rem);text-align:center;text-wrap:balance;line-height:1.15}
+.banner p{max-width:1040px;margin:10px auto 0;text-align:center;color:#C9D1DF;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase}
+
+main{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:48px 72px}
+section.page{display:grid;gap:40px}
+h2{font-family:var(--serif);font-weight:600;font-size:1.6rem;color:var(--accent);margin:0 0 12px;text-wrap:balance;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-family:var(--serif);font-weight:600;font-size:1.15rem;margin:0;line-height:1.35;text-wrap:balance}
+p{margin:0 0 12px;max-width:68ch}
+ul.plain{margin:0;padding-left:20px;display:grid;gap:6px}
+
+/* About */
+.about{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:start}
+.portrait{aspect-ratio:4/5;max-width:100%;background:var(--chip);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--serif);font-size:3.2rem;color:var(--rice-gray)}
+.portrait{position:relative;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait small{display:block;font-family:var(--sans);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;text-align:center;margin-top:-40px}
+.lede{font-size:1.1rem}
+.contact{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:8px}
+.contact code{font-family:var(--sans);font-size:.98rem;background:var(--chip);padding:4px 10px;user-select:all}
+.btn{font:inherit;font-size:.85rem;font-weight:600;padding:8px 16px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.solid{background:var(--rice-blue);color:#fff;border-color:var(--rice-blue)}
+.btn:hover{filter:brightness(1.1)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.tags li{background:var(--chip);padding:4px 12px;font-size:.88rem}
+
+/* Research */
+.paper{padding-block:18px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.paper:last-child{border-bottom:0}
+.paper .meta{color:var(--muted);font-size:.9rem}
+details summary{cursor:pointer;font-size:.85rem;font-weight:600;color:var(--accent);list-style:none;display:inline-flex;align-items:center;gap:6px}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";font-size:1rem;width:1em}
+details[open] summary::before{content:"–"}
+details p{margin-top:10px;font-size:.95rem;color:var(--fg)}
+.pubs{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.pubs li{padding-left:16px;border-left:2px solid var(--line)}
+.pubs em{color:var(--muted)}
+.status{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rice-gray)}
+
+/* CV rows */
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;padding-block:12px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .when{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .sub{grid-column:1/-1;color:var(--muted);font-size:.95rem}
+.row ul{grid-column:1/-1;margin:4px 0 0;padding-left:20px;font-size:.95rem;display:grid;gap:4px}
+.course{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:4px 16px;padding-block:12px;border-bottom:1px solid var(--line);align-items:baseline}
+.course .code{font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.course .when{color:var(--muted);font-size:.9rem;white-space:nowrap}
+.course .prof{grid-column:2/-1;color:var(--muted);font-size:.92rem}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.refs div{font-size:.93rem;color:var(--muted)}
+.refs strong{display:block;color:var(--fg);font-family:var(--serif);font-size:1.05rem}
+dl.skills{display:grid;grid-template-columns:170px minmax(0,1fr);gap:10px 20px;margin:0}
+dl.skills dt{font-weight:600}
+dl.skills dd{margin:0;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding-inline:16px;padding-block:24px;text-align:center;color:var(--muted);font-size:.85rem}
+
+@media (max-width:640px){
+  .about{grid-template-columns:1fr}
+  .portrait{max-width:200px}
+  .row{grid-template-columns:1fr}
+  .course{grid-template-columns:1fr}
+  .course .prof{grid-column:1}
+  dl.skills{grid-template-columns:1fr;gap:2px}
+  dl.skills dd{margin-bottom:10px}
+  nav a{padding:8px 10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#about">George Du</a>
+    <nav aria-label="Site">
+      <ul>
+        <li><a href="#about" data-page="about">About Me</a></li>
+        <li><a href="#cv" data-page="cv">CV</a></li>
+        <li><a href="#research" data-page="research">Research</a></li>
+        <li><a href="#teaching" data-page="teaching">Teaching</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="banner">
+  <h1 id="banner-title">Hongbin George Du</h1>
+  <p>Ph.D. Candidate in Finance · Rice University</p>
+</div>
+
+<main>
+  <!-- ABOUT -->
+  <section class="page" id="page-about" data-page="about">
+    <div class="about">
+      <div class="portrait"><img src="photo.jpg" alt="Photo of George Du" onerror="this.remove()"><span>GD</span></div>
+      <div>
+        <p class="lede">Welcome to my personal webpage!</p>
+        <p>I am a Ph.D. student in Finance at the Jones Graduate School of Business, Rice University, where I hold a Graduate Fellowship in Finance.</p>
+        <p>My research studies how firms and regulators shape financial outcomes, with a focus on consumer finance, discretion in financial redress, and corporate capital structure. I use causal inference methods, including difference-in-differences and event studies, on large administrative datasets.</p>
+        <div class="contact">
+          <span>Email:</span>
+          <a href="mailto:dugeorge21@rice.edu"><code id="email">dugeorge21@rice.edu</code></a>
+          <button class="btn" id="copy-email" type="button">Copy</button>
+          <a class="btn solid" href="#cv">Curriculum Vitae</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="two">
+      <div>
+        <h2>Education</h2>
+        <ul class="plain">
+          <li>Ph.D. in Finance (Graduate Fellowship), Rice University, in progress</li>
+          <li>Master's in Business, Rice University, concurrent</li>
+          <li>B.S.A. in Mathematics and B.A. in Economics, The University of Texas at Austin, 2020
+            <ul class="plain" style="margin-top:4px"><li>Minors: Business, Chinese</li></ul></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Research Interests</h2>
+        <ul class="plain">
+          <li>Consumer Finance</li>
+          <li>Financial Regulation and Supervision</li>
+          <li>Corporate Finance and Capital Structure</li>
+          <li>Applied Econometrics and Causal Inference</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="page" id="page-research" data-page="research" hidden>
+    <div>
+      <h2>Working Papers</h2>
+
+      <article class="paper">
+        <span class="status">Job Market Paper</span>
+        <h3>Where Discretion Lives: Product Stakes and the Demographic Gap in Consumer Financial Restitution</h3>
+        <details>
+          <summary>Abstract</summary>
+          <p>Demographic gaps in consumer redress are usually modeled as a property of firms or of consumers. I show they are better understood as a property of tasks. Using CFPB data on millions of complaints, I document that the demographic gap in financial restitution is close to zero in low-stakes, easily verified products such as credit cards and deposit accounts, and large in high-stakes, contested products such as mortgages, student loans, and debt collection. The gap appears where firms exercise discretion and disappears where they apply rules. To test whether firms rather than filers generate this pattern, I use confidential CFPB monitoring reports as a plausibly exogenous source of variation, which are issued to firms on a staggered schedule and never disclosed publicly. Following a report, restitution does not rise for the average complaint; instead the return to filer self-advocacy roughly doubles and the return to documentation more than doubles, and relief shifts toward high-income, high-education, Asian, and White filers. Firms therefore respond to supervision by pricing filer-supplied signals more heavily, which widens the gap it might have been expected to close.</p>
+        </details>
+      </article>
+
+      <article class="paper">
+        <h3>Revisiting Staggered Differences-in-Differences: Evidence from State Corporate Tax Rate Effects on Firms' Leverage Decisions</h3>
+        <details>
+          <summary>Abstract</summary>
+          <p>I reexamine the staggered treatment adoption of state corporate tax changes on leverage using new econometric techniques. I show that the estimated effect of state corporate tax increases on change in long-term book leverage is much smaller than original and overall insignificant and is slightly larger in magnitude for tax decreases but still overall insignificant. Heterogeneous treatment effects in particular groups cause the bias. My results suggest that the true effect of state corporate tax increases on leverage is not as large and significant, and other papers should be cautious of unusually large and significant effects in similar settings.</p>
+        </details>
+      </article>
+
+      <article class="paper">
+        <h3>Corporate Tax Rate Effects on Firms' Capital Structure Decisions: Evidence from the Trump Tax Reform</h3>
+        <details>
+          <summary>Abstract</summary>
+          <p>This paper studies how corporate tax reductions and interest expense limits affect firms' capital structure decisions. Using two important provisions from the 2017 Trump tax reform as identification and firm-year level data, I show that firms decrease their book leverage by 3.3% of total assets on average. This effect is mainly driven by a reduction in debt issuance and high-interest expense firms. My results suggest that large reductions in corporate tax rates combined with interest expense deduction limits have significant impacts on firms' leverage most likely due to a multiplier effect of reduction in tax shields.</p>
+        </details>
+      </article>
+    </div>
+
+    <div>
+      <h2>Publications</h2>
+      <ul class="pubs">
+        <li>“Multi-set Function Maximization with Application in Viral Marketing” (with Chensheng Ma, Hongmin W. Du, Zhao Zhang). <em>Journal of Combinatorial Optimization</em>, 2026.</li>
+        <li>“SqueezeBioBERT: BioBERT Distillation for Healthcare Natural Language Processing” (with Yanke Hu). <em>CSoNet 2020</em>.</li>
+        <li>“A Short Proof for a Stronger Version of DS Decomposition in Set Function Optimization” (with Xiang Li). <em>Journal of Combinatorial Optimization</em>, 2020.</li>
+        <li>“A Variation of DS Decomposition in Set Function Optimization” (with Xiang Li and Panos M. Pardalos). <em>Journal of Combinatorial Optimization</em> 40(1): 36–44, 2020.</li>
+        <li>“Bio-Inspired Nanostructures for Enhanced Light Management” (with Honglei Wan, Yuchen Liang, et al.). <em>Journal of Vacuum Science &amp; Technology B</em> 35(6): 06GJ02, 2017.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="page" id="page-teaching" data-page="teaching" hidden>
+    <div>
+      <h2>Teaching Assistant</h2>
+      <p>Jones Graduate School of Business, Rice University</p>
+      <div class="course"><span class="code">BUSI 721</span><span>Data-Driven Finance (MBA)</span><span class="when">Spring 2022</span><span class="prof">Prof. Kerry Back</span></div>
+      <div class="course"><span class="code">MGMT 659</span><span>Real Estate Finance (MBA)</span><span class="when">Spring 2022</span><span class="prof">Prof. Jefferson Duarte</span></div>
+      <div class="course"><span class="code">MGMT 642</span><span>Futures and Options I (MBA)</span><span class="when">Fall 2023</span><span class="prof">Prof. Jeff Fleming</span></div>
+      <div class="course"><span class="code">MGMP 540</span><span>Managerial Economics (MBA)</span><span class="when">Fall 2023</span><span class="prof">Prof. Jeff Fleming</span></div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="page" id="page-cv" data-page="cv" hidden>
+    <div><a class="btn solid" href="CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></div>
+    <div>
+      <h2>Education</h2>
+      <div class="row"><strong>Rice University</strong><span class="when">May 2021 – present</span>
+        <span class="sub">Master's in Business (concurrent) · Graduate Fellowship in Finance Ph.D.</span></div>
+      <div class="row"><strong>The University of Texas at Austin</strong><span class="when">Aug 2016 – Aug 2020</span>
+        <span class="sub">B.S.A. in Mathematics, B.A. in Economics · Minors: Business, Chinese</span>
+        <ul><li>University Honors (2018–2020)</li></ul></div>
+    </div>
+
+    <div>
+      <h2>Experience</h2>
+      <div class="row"><strong>Consumer Financial Protection Bureau (CFPB)</strong><span class="when">Dec 2022 – May 2024</span>
+        <span class="sub">Government Graduate Volunteer</span>
+        <ul><li>Conducted research with confidential individual-level data on financial restitution gaps in consumer finance, developing insights on consumer-complaint compensation discrepancies using Python and R.</li></ul></div>
+      <div class="row"><strong>National Science Foundation REU, Software Safety and Reliability</strong><span class="when">May 2018 – Aug 2018</span>
+        <span class="sub">Undergraduate Data Science Researcher</span>
+        <ul>
+          <li>Developed and deployed a secure web application for refugee-distribution services in the Dallas area (AWS, Google Firebase, HTML, PHP, SQL).</li>
+          <li>Improved refugee product allocation at the Northwest Community Center by forecasting needs by family size, country, and age in Python and R.</li>
+        </ul></div>
+      <div class="row"><strong>UTD CAST-STEM Bridge Program</strong><span class="when">Summers 2015 &amp; 2016</span>
+        <span class="sub">Research Intern</span>
+        <ul>
+          <li>Studied butterfly-wing and rose nanostructures to enhance light management in lenses and solar cells.</li>
+          <li>Co-invented the first successful nanoscale application of SAW chips as biosensors for salt detection, accepted at EIPBN 2016 (“Nanoscale Interdigital Electrode Arrays for Smart Water Sensing”).</li>
+        </ul></div>
+    </div>
+
+    <div>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Programming</dt><dd>Python, R, SQL &amp; PL/SQL, PHP, CSS, HTML, Java, JavaScript</dd>
+        <dt>Data &amp; Cloud</dt><dd>AWS RDS, AWS EC2, AWS VPC, Google Firebase</dd>
+        <dt>Software</dt><dd>STATA, RStudio, PyTorch, Visual Studio Code</dd>
+        <dt>Methods</dt><dd>Causal inference (difference-in-differences, event studies, regression discontinuity, synthetic controls), statistical analysis, machine learning, data visualization</dd>
+      </dl>
+    </div>
+
+    <div>
+      <h2>References</h2>
+      <div class="refs">
+        <div><strong>Prof. Kerry Back</strong>J. Howard Creekmore Professor of Finance and Professor of Economics<br>Jones Graduate School of Business, Rice University<br>keb6@rice.edu</div>
+        <div><strong>Prof. Alexander Butler</strong>Jesse H. Jones Professor of Finance<br>Jones Graduate School of Business, Rice University<br>abutler@rice.edu</div>
+        <div><strong>Prof. Gustavo Grullon</strong>Jesse H. Jones Professor of Finance<br>Jones Graduate School of Business, Rice University<br>grullon3@rice.edu</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Hongbin George Du · Jones Graduate School of Business, Rice University · dugeorge21@rice.edu</footer>
+
+<script>
+(function(){
+  const pages=["about","cv","research","teaching"];
+  function show(){
+    const id=(location.hash||"#about").slice(1);
+    const cur=pages.includes(id)?id:"about";
+    document.querySelectorAll("section.page").forEach(s=>s.hidden=s.dataset.page!==cur);
+    document.querySelectorAll("nav a").forEach(a=>{
+      if(a.dataset.page===cur)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0,0);
+  }
+  window.addEventListener("hashchange",show);show();
+  const btn=document.getElementById("copy-email");
+  btn.addEventListener("click",()=>{
+    const t=document.getElementById("email").textContent;
+    const done=()=>{btn.textContent="Copied";setTimeout(()=>btn.textContent="Copy",1500)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done).catch(sel)}else sel();
+    function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);}
+  });
+})();
+</script>
+
+</body>
+</html>
